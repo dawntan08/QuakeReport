@@ -28,15 +28,18 @@ public class EarthquakeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
-        // Create a fake list of earthquake locations with magnitude, date
-        ArrayList<EarthquakeInfo> earthquakes = new ArrayList<>();
-        earthquakes.add(new EarthquakeInfo(5.6, "San Francisco", "July 25, 2017"));
-        earthquakes.add(new EarthquakeInfo(3.5, "London", "May 25, 2017"));
-        earthquakes.add(new EarthquakeInfo(5.6, "Tokyo", "July 25, 2017"));
-        earthquakes.add(new EarthquakeInfo(9.6, "San Francisco", "July 25, 2017"));
-        earthquakes.add(new EarthquakeInfo(5.8, "Moscow", "July 25, 2017"));
-        earthquakes.add(new EarthquakeInfo(2.6, "Sio de ", "July 25, 2017"));
-        earthquakes.add(new EarthquakeInfo(3.6, "Paris", "July 25, 2017"));
+//        // Create a fake list of earthquake locations with magnitude, date
+//        ArrayList<Earthquake> earthquakes = new ArrayList<>();
+//        earthquakes.add(new Earthquake(5.6, "San Francisco", "July 25, 2017"));
+//        earthquakes.add(new Earthquake(3.5, "London", "May 25, 2017"));
+//        earthquakes.add(new Earthquake(5.6, "Tokyo", "July 25, 2017"));
+//        earthquakes.add(new Earthquake(9.6, "San Francisco", "July 25, 2017"));
+//        earthquakes.add(new Earthquake(5.8, "Moscow", "July 25, 2017"));
+//        earthquakes.add(new Earthquake(2.6, "Sio de ", "July 25, 2017"));
+//        earthquakes.add(new Earthquake(3.6, "Paris", "July 25, 2017"));
+
+        // Create a fake list of earthquakes.
+        ArrayList<Earthquake> earthquakes = QueryUtils.extractEarthquakes();
 
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);

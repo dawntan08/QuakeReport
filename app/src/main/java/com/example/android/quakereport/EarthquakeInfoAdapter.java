@@ -14,9 +14,9 @@ import java.util.ArrayList;
  * custom adapter to cater to the EarthquakeInfo object
  */
 
-public class EarthquakeInfoAdapter extends ArrayAdapter<EarthquakeInfo> {
+public class EarthquakeInfoAdapter extends ArrayAdapter<Earthquake> {
 
-    public EarthquakeInfoAdapter(Activity context, ArrayList<EarthquakeInfo> earthquakeInfo){
+    public EarthquakeInfoAdapter(Activity context, ArrayList<Earthquake> earthquakeInfo){
         super(context,0, earthquakeInfo);
     }
 
@@ -31,7 +31,7 @@ public class EarthquakeInfoAdapter extends ArrayAdapter<EarthquakeInfo> {
                     R.layout.earthquake_list, parent, false);
         }
 
-        EarthquakeInfo currentEquakeInfo = getItem(position);
+        Earthquake currentEquakeInfo = getItem(position);
 
         // Find the TextView in the xml layout with the ID magTextView, and set its value
         TextView magTextView = (TextView) listItemView.findViewById(R.id.magnitude);
@@ -43,7 +43,7 @@ public class EarthquakeInfoAdapter extends ArrayAdapter<EarthquakeInfo> {
 
         // Find the TextView in the xml layout with the ID cityTextView, and set its value
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
-        dateTextView.setText(currentEquakeInfo.getDate());
+        dateTextView.setText(Long.toString(currentEquakeInfo.getDate()));
 
         // Return the whole list item layout so that it can be shown in the ListView
         return listItemView;

@@ -5,7 +5,7 @@ package com.example.android.quakereport;
  * represent information related to an earthquake that occurred
  */
 
-public class EarthquakeInfo {
+public class Earthquake {
 
     // magnitude of the earthquake
     private double mMag;
@@ -14,15 +14,15 @@ public class EarthquakeInfo {
     private String mCity;
 
     // date earthquake occurred
-    private String mDate;
+    private Long mDate;
 
     /**
      * Creates a new EarthquakeInfo object
-     * @param mag
-     * @param city
-     * @param date
+     * @param mag is the magnitude of the earthquake
+     * @param city is the location where the equake occurred
+     * @param date is the date when the quake occurred
      */
-    public EarthquakeInfo(double mag, String city, String date){
+    public Earthquake(double mag, String city, Long date){
         mMag = mag;
         mCity = city;
         mDate = date;
@@ -37,7 +37,7 @@ public class EarthquakeInfo {
         return mCity;
     }
 
-    public String getDate() {
+    public Long getDate() {
         return mDate;
     }
 }
