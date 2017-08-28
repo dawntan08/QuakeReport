@@ -18,6 +18,10 @@ import java.util.Date;
 
 public class EarthquakeInfoAdapter extends ArrayAdapter<Earthquake> {
 
+    String locationEstimate, location;
+    private static final String LOCATION_DESCRIPTION = "Near the ";
+    private static final String LOCATION_SEPARATOR = "of";
+
     public EarthquakeInfoAdapter(Activity context, ArrayList<Earthquake> earthquakeInfo){
         super(context,0, earthquakeInfo);
     }
@@ -25,6 +29,7 @@ public class EarthquakeInfoAdapter extends ArrayAdapter<Earthquake> {
     // control how the listview items are created
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
 
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
@@ -41,7 +46,17 @@ public class EarthquakeInfoAdapter extends ArrayAdapter<Earthquake> {
 
         // Find the TextView in the xml layout with the ID cityTextView, and set its value
         TextView cityTextView = (TextView) listItemView.findViewById(R.id.location);
-        cityTextView.setText(currentEquakeInfo.getCity());
+        TextView locationEstimateTextView = (TextView)
+                listItemView.findViewById(R.id.location_estimate);
+        String locationInfo = currentEquakeInfo.getCity();
+        if(locationInfo.contains("of")){
+            splitString(locationInfo);
+            locationEstimateTextView.setText(locationEstimate + LOCATION_SEPARATOR);
+            cityTextView.setText(location);
+        } else{
+            locationEstimateTextView.setText(LOCATION_DESCRIPTION);
+            cityTextView.setText(locationInfo);
+        }
 
         // create Date object from the Equake info
         Date dateObject = new Date(currentEquakeInfo.getDate());
@@ -73,5 +88,11 @@ public class EarthquakeInfoAdapter extends ArrayAdapter<Earthquake> {
     private String formatTime(Date dateObject) {
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
         return timeFormat.format(dateObject);
+    }
+
+    private void splitString(String s){
+        String[] parts = s.split("of");
+        locationEstimate= parts[0];
+        location = parts[1];
     }
 }
