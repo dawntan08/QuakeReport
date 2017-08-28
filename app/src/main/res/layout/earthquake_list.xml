@@ -22,13 +22,31 @@
         tools:text="San Francisco"
         android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:layout_toRightOf="@+id/location"
-        tools:text="August 24, 2017"
-        android:textSize="16sp" />
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            tools:text="August 24, 2017"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            tools:text="3:26 PM"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>
