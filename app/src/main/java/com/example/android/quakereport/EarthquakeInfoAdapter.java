@@ -60,9 +60,9 @@ public class EarthquakeInfoAdapter extends ArrayAdapter<Earthquake> {
 
 
         // Find the TextView in the xml layout with the ID cityTextView, and set its value
-        TextView cityTextView = (TextView) listItemView.findViewById(R.id.location);
+        TextView cityTextView = (TextView) listItemView.findViewById(R.id.primary_location);
         TextView locationEstimateTextView = (TextView)
-                listItemView.findViewById(R.id.location_estimate);
+                listItemView.findViewById(R.id.location_offset);
         String locationInfo = currentEquakeInfo.getCity();
         if(locationInfo.contains("of")){
             splitString(locationInfo);
