@@ -16,17 +16,19 @@ public class Earthquake {
     // date earthquake occurred
     private Long mDate;
 
+    // url showing more info about the earthquake
+    private String mUrl;
     /**
      * Creates a new EarthquakeInfo object
      * @param mag is the magnitude of the earthquake
      * @param city is the location where the equake occurred
      * @param date is the date when the quake occurred
      */
-    public Earthquake(double mag, String city, Long date){
+    public Earthquake(double mag, String city, Long date, String url){
         mMag = mag;
         mCity = city;
         mDate = date;
-
+        mUrl = url;
     }
 
     public double getMag() {
@@ -39,5 +41,9 @@ public class Earthquake {
 
     public Long getDate() {
         return mDate;
+    }
+
+    public String getUrl() {
+        return mUrl;
     }
 }

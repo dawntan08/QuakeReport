@@ -64,7 +64,7 @@ public class EarthquakeInfoAdapter extends ArrayAdapter<Earthquake> {
         TextView locationEstimateTextView = (TextView)
                 listItemView.findViewById(R.id.location_offset);
         String locationInfo = currentEquakeInfo.getCity();
-        if(locationInfo.contains("of")){
+        if(locationInfo.contains(LOCATION_SEPARATOR)){
             splitString(locationInfo);
             locationEstimateTextView.setText(locationEstimate + LOCATION_SEPARATOR);
             cityTextView.setText(location);
@@ -156,7 +156,7 @@ public class EarthquakeInfoAdapter extends ArrayAdapter<Earthquake> {
     }
 
     private void splitString(String s){
-        String[] parts = s.split("of");
+        String[] parts = s.split(LOCATION_SEPARATOR);
         locationEstimate= parts[0];
         location = parts[1];
     }
